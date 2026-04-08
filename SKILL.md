@@ -1,11 +1,11 @@
 ---
 name: summarizer
-description: Analyze and summarize articles, podcast transcripts, video transcriptions, and long-form content into structured bilingual (Chinese-English) reports with Obsidian callouts. Use when the user shares a URL, file path, or pastes text and asks to summarize, analyze, digest, review, or extract insights from any content. Also triggers on phrases like "总结这篇文章", "帮我分析", "summarize this", "digest this transcript", or when user provides a transcript/article for analysis.
+description: Analyze and summarize articles, podcast transcripts, video transcriptions, and long-form content into structured reports with Obsidian callouts. Use when the user shares a URL, file path, or pastes text and asks to summarize, analyze, digest, review, or extract insights from any content. Also triggers on phrases like "summarize this article", "help me analyze", "summarize this", "digest this transcript", or when user provides a transcript/article for analysis.
 ---
 
-# Summarizer — 双语内容分析与结构化总结
+# Summarizer — Bilingual Content Analysis & Structured Summarization
 
-将任意文章、播客转录、视频文字稿转化为结构化、美观的Obsidian笔记，包含核心概括、思维导图、主题深度解析和可操作建议。
+Transform any article, podcast transcript, or video transcript into a structured, polished Obsidian note — including a core summary, mind map, in-depth theme analysis, and actionable recommendations.
 
 ## Workflow
 
@@ -33,10 +33,10 @@ After reading the content, perform a quick assessment:
 
 Then ask the user **1-3 quick confirmation questions** using the AskUserQuestion tool. The questions should include:
 
-- **Theme count confirmation**: "内容约X字，识别出以下N个核心主题：[列出主题名称]。数量和方向是否合适？" with options like the suggested number, +1, -1, or "你来决定"
+- **Theme count confirmation**: "Content is approximately X words. I identified the following N core themes: [list theme names]. Does the count and direction look right?" with options like the suggested number, +1, -1, or "You decide"
 - **Only ask additional questions if genuinely uncertain** about something — e.g., if the content covers multiple distinct domains and you're unsure which angle the user cares about, or if the title is ambiguous
 
-If the user has already specified preferences in their prompt (e.g., "生成5个主题", "重点关注技术部分"), skip the corresponding question and respect their instruction.
+If the user has already specified preferences in their prompt (e.g., "generate 5 themes", "focus on the technical section"), skip the corresponding question and respect their instruction.
 
 ### Phase 3: Generate Report
 
@@ -44,10 +44,10 @@ If the user has already specified preferences in their prompt (e.g., "生成5个
 
 Generate the report following the Output Template below. Apply these principles:
 
-- **中英混合风格** — English for topic names, dimension names, key concepts; Chinese for detailed descriptions and explanations
-- **信息密度优先** — Every sentence should carry meaning. No filler, no redundant transitions
-- **证据驱动** — Insights must be backed by specific quotes, data, or examples from the source
-- **可操作性** — Every theme must include concrete, actionable recommendations
+- **Bilingual mixed style** — English for topic names, dimension names, key concepts; Chinese for detailed descriptions and explanations
+- **Information density first** — Every sentence should carry meaning. No filler, no redundant transitions
+- **Evidence-driven** — Insights must be backed by specific quotes, data, or examples from the source
+- **Actionability** — Every theme must include concrete, actionable recommendations
 - **Obsidian Callouts** — Use callouts to highlight the most important content (see Formatting Guide below)
 
 **PACER Analysis** — After completing the Theme Analysis, determine the single most relevant PACER category for the entire article based on its dominant knowledge type and most likely learning goal. Then generate the PACER Application section using the matching action template (see PACER Classification Guide below).
@@ -66,7 +66,7 @@ Save the report as a new file:
 
 ```markdown
 ---
-title: "[原标题]"
+title: "[Original Title]"
 date: [YYYY-MM-DD]
 type: content-analysis
 source: [url/file/paste]
@@ -75,80 +75,80 @@ tags:
   - [content-domain-tag]
 ---
 
-# [原标题(保留原本语言)] - [非中文翻译为中文的标题]
+# [Original Title (in its original language)] - [Title translated to English if not already in English]
 
-## Core Summary - 核心概括
+## Core Summary
 
 > [!abstract] TLDR
-> [一句话概括核心主题和定位]
+> [One-sentence summary of the core theme and positioning]
 >
-> - **[维度1]**：[关键发现，简洁有力]
-> - **[维度2]**：[关键发现]
-> - **[维度3]**：[关键发现]
-> - **[结论/底线]**：[最终判断]
+> - **[Dimension 1]**: [Key finding, concise and impactful]
+> - **[Dimension 2]**: [Key finding]
+> - **[Dimension 3]**: [Key finding]
+> - **[Conclusion/Bottom Line]**: [Final judgment]
 
-Core Summary 的要求：先用一句话点明主题，然后用 3-5 个 bullets 分别覆盖文章的核心维度。每个 bullet 用 bold stem 开头，后跟简洁描述。总长度控制在 5-8 行。
-
----
-
-## Mind Map - 思维导图大纲
-
-使用 box-drawing 字符（├──、└──、│）绘制树状文本思维导图，展示完整的内容结构和逻辑关系。
+Core Summary requirements: Lead with one sentence that states the theme clearly, then use 3-5 bullets to cover the article's core dimensions. Each bullet starts with a bold stem followed by a concise description. Keep total length to 5-8 lines.
 
 ---
 
-## Theme Analysis - 主题深度解析
+## Mind Map
+
+Use box-drawing characters (├──, └──, │) to draw a text-based tree mind map showing the complete content structure and logical relationships.
+
+---
+
+## Theme Analysis
 
 ### Theme [N]: [English Theme Name]
 
 | Dimension | Insight | Supporting Evidence |
 |-----------|---------|---------------------|
-| **[维度名1]** | [核心洞察，一句话] | [具体引用/数据/案例] |
-| **[维度名2]** | [核心洞察] | [具体引用/数据] |
-| **[维度名3]** | [核心洞察] | [具体引用/数据] |
+| **[Dimension 1]** | [Core insight, one sentence] | [Specific quote/data/case] |
+| **[Dimension 2]** | [Core insight] | [Specific quote/data] |
+| **[Dimension 3]** | [Core insight] | [Specific quote/data] |
 
 > [!tip]- Top 3 Actionable Recommendations
-> 1. **[行动标题]**：[具体建议，综合多个维度的洞察提炼而成]
-> 2. **[行动标题]**：[具体建议]
-> 3. **[行动标题]**：[具体建议]
+> 1. **[Action title]**: [Specific recommendation synthesized from across multiple dimensions]
+> 2. **[Action title]**: [Specific recommendation]
+> 3. **[Action title]**: [Specific recommendation]
 
-表格保留三列：Dimension、Insight、Supporting Evidence。表格下方用可折叠 callout 放 Top 3 Actionable Recommendations。
+The table keeps three columns: Dimension, Insight, Supporting Evidence. Below the table, use a foldable callout for Top 3 Actionable Recommendations.
 
-Recommendations 的关键原则：不与表格中的 Dimension 一一对应，而是综合分析所有维度后，提炼出最有价值的 top 3 行动建议。每条建议应具体、可操作、有预期收益。
+Key principle for Recommendations: do not map one-to-one with table Dimensions — instead, synthesize all dimensions and distill the top 3 most valuable action recommendations. Each recommendation should be specific, actionable, and have a clear expected benefit.
 
-对于包含风险/警告内容的 theme，使用 `> [!warning]-` 替代 `> [!tip]-`。
+For themes that contain risk/warning content, use `> [!warning]-` instead of `> [!tip]-`.
 
-#### Data Visualization（仅在有助于理解时包含）
+#### Data Visualization (include only when it aids understanding)
 
-使用文本符号绘制图表：对比矩阵、流程图、时间线等。不要为了可视化而可视化。
-
----
-
-[重复 Theme sections，每个 theme 之间用 --- 分隔]
+Use text symbols to draw charts: comparison matrices, flowcharts, timelines, etc. Do not visualize for the sake of visualization.
 
 ---
 
-## PACER Application - 知识消化行动方案
+[Repeat Theme sections, separate each theme with ---]
 
-> [!important] PACER 分类：[X] — [Full Name]（[中文名]）
-> **判断依据**：[一句话解释为什么选择这个分类，基于内容的主导知识类型]
+---
 
-### 消化行动
+## PACER Application
 
-[根据 PACER 分类生成对应的行动内容，参见 PACER Classification Guide]
+> [!important] PACER Classification: [X] — [Full Name]
+> **Rationale**: [One sentence explaining why this classification was chosen, based on the dominant knowledge type of the content]
 
-### 思考问题
+### Digest Actions
 
-[嵌入 2-4 个针对性问题，教练式语气，用 checkbox 格式]
+[Generate the corresponding action content based on PACER classification — see PACER Classification Guide]
 
-- [ ] [问题1]
-- [ ] [问题2]
-- [ ] [问题3]
+### Reflection Questions
+
+[Embed 2-4 targeted questions in coaching tone, using checkbox format]
+
+- [ ] [Question 1]
+- [ ] [Question 2]
+- [ ] [Question 3]
 ```
 
 ---
 
-## Formatting Guide — Obsidian Callouts 使用规范
+## Formatting Guide — Obsidian Callouts Usage
 
 Use Obsidian callouts strategically to highlight key content. Do not overuse — typically 2-4 callouts per report.
 
@@ -178,7 +178,7 @@ Use Obsidian callouts strategically to highlight key content. Do not overuse —
 7. Mind Map uses box-drawing characters (├── └── │) for clean text-based tree rendering
 8. Data Visualization uses text-based charts (ASCII art): comparison matrices, flowcharts, timelines, etc.
 9. Avoid content duplication — if data appears in a callout, do not repeat it in a table or visualization
-10. No trailing summaries or "以上是..." closings — the report ends with the PACER Application section
+10. No trailing summaries or closing remarks — the report ends with the PACER Application section
 
 ---
 
@@ -205,129 +205,129 @@ Use Obsidian callouts strategically to highlight key content. Do not overuse —
 
 ## PACER Classification Guide
 
-PACER 将信息分为五类，每类对应特定的消化策略。在生成报告时，综合分析整篇内容的主导知识类型，选择**最相关的一个**分类，然后使用对应的行动模板生成 PACER Application section。
+PACER divides information into five categories, each corresponding to a specific digestion strategy. When generating a report, comprehensively analyze the dominant knowledge type of the entire content, select **the single most relevant** category, and then use the corresponding action template to generate the PACER Application section.
 
 ### Classification Decision Logic
 
-按以下优先级判断内容的主导类型：
+Determine the dominant content type using the following priority order:
 
-1. **内容是否主要教你"如何做"某事？** → P（Procedural）
-   - 教程、操作指南、工具使用方法、编程教学、流程说明
-2. **内容是否主要解释"是什么/为什么"？** → C（Conceptual）
-   - 理论框架、设计哲学、原理解释、学科知识、思维模型
-3. **内容是否主要提供案例/数据来支撑某个论点？** → E（Evidence）
-   - 案例研究、数据报告、实验结果、行业分析
-4. **内容是否与读者已有知识高度相关，可建立类比？** → A（Analogous）
-   - 跨领域对比、新旧方法对比、竞品分析、范式迁移
-5. **内容是否主要是细节性参考信息？** → R（Reference）
-   - API 文档、配置参数、公式列表、术语表
+1. **Does the content primarily teach you "how to do" something?** → P (Procedural)
+   - Tutorials, operation guides, tool usage, programming instruction, process explanations
+2. **Does the content primarily explain "what/why"?** → C (Conceptual)
+   - Theoretical frameworks, design philosophy, principle explanations, subject knowledge, mental models
+3. **Does the content primarily provide cases/data to support an argument?** → E (Evidence)
+   - Case studies, data reports, experiment results, industry analysis
+4. **Is the content highly relevant to existing reader knowledge, enabling analogies?** → A (Analogous)
+   - Cross-domain comparisons, old-vs-new method comparisons, competitive analysis, paradigm shifts
+5. **Is the content primarily detailed reference information?** → R (Reference)
+   - API documentation, configuration parameters, formula lists, glossaries
 
-注意：A（类比性）可嵌套于 P 和 C 中。如果内容主要是 P 或 C，但有明显的类比机会，在行动模板中补充"类比锚点"即可，不需要将整体改为 A。
+Note: A (Analogous) can be nested within P and C. If content is primarily P or C but has clear analogy opportunities, add an "analogy anchor" in the action template — no need to change the overall classification to A.
 
 ### Action Templates by Category
 
-#### P — Procedural → Practice（尽早实践）
+#### P — Procedural → Practice (practice as early as possible)
 
 ```
-### 消化行动
+### Digest Actions
 
-这篇内容的核心是**程序性知识**——你需要通过实践来消化，而不是记忆。
+The core of this content is **procedural knowledge** — you need to digest it through practice, not memorization.
 
-1. **[具体实践步骤1]**：[基于文章内容提取的第一步操作]
-2. **[具体实践步骤2]**：[第二步操作]
-3. **[具体实践步骤3]**：[第三步操作]
-4. **记录发现**：实践后写下你的关键发现和遇到的问题
-5. **对比预期**：实际体验与文章描述有何不同？
+1. **[Specific practice step 1]**: [First action extracted from the article content]
+2. **[Specific practice step 2]**: [Second action]
+3. **[Specific practice step 3]**: [Third action]
+4. **Record findings**: After practicing, write down your key discoveries and problems encountered
+5. **Compare against expectations**: How does the actual experience differ from the article's description?
 
-如果当前没有条件实践，停止消费更多内容，等有条件时再回来。
+If you don't currently have the conditions to practice, stop consuming more content and come back when you do.
 
-### 思考问题
+### Reflection Questions
 
-- [ ] [与实践体验相关的反思问题]
-- [ ] [与现有工作流对比的问题]
-- [ ] [关于何时/如何在真实场景中应用的问题]
+- [ ] [Reflection question related to the practice experience]
+- [ ] [Question comparing with existing workflows]
+- [ ] [Question about when/how to apply in real scenarios]
 ```
 
-#### A — Analogous → Critique（批判性审视）
+#### A — Analogous → Critique (critical examination)
 
 ```
-### 消化行动
+### Digest Actions
 
-这篇内容与你已有的知识高度相关，消化的关键是**建立并批判类比**。
+This content is highly relevant to your existing knowledge — the key to digestion is **building and critiquing analogies**.
 
-**类比 1**：[文章核心概念] ↔ [读者可能已知的概念]
-- 相似之处：[具体列出]
-- 关键差异：[具体列出]
+**Analogy 1**: [Core concept from article] ↔ [Concept the reader likely already knows]
+- Similarities: [List specifically]
+- Key differences: [List specifically]
 
-**类比 2**：[另一个概念] ↔ [另一个已知概念]
-- 相似之处：[具体列出]
-- 关键差异：[具体列出]
+**Analogy 2**: [Another concept] ↔ [Another known concept]
+- Similarities: [List specifically]
+- Key differences: [List specifically]
 
-### 思考问题
+### Reflection Questions
 
-- [ ] 这个类比在什么情况下会失效？
-- [ ] 如果用[已知概念]的思路来理解[新概念]，会遗漏什么？
-- [ ] 能否找到一个更好的类比来理解这个概念？
+- [ ] In what circumstances would this analogy break down?
+- [ ] If you used the lens of [known concept] to understand [new concept], what would you miss?
+- [ ] Can you find a better analogy to understand this concept?
 ```
 
-#### C — Conceptual → Mapping（网络化笔记）
+#### C — Conceptual → Mapping (networked notes)
 
 ```
-### 消化行动
+### Digest Actions
 
-这篇内容的核心是**概念性知识**——你需要通过建立知识网络来消化，而不是线性记忆。
+The core of this content is **conceptual knowledge** — you need to digest it by building a knowledge network, not linear memorization.
 
-**核心概念节点**：
-1. **[概念A]** — [一句话定义]
-2. **[概念B]** — [一句话定义]
-3. **[概念C]** — [一句话定义]
+**Core concept nodes**:
+1. **[Concept A]** — [One-sentence definition]
+2. **[Concept B]** — [One-sentence definition]
+3. **[Concept C]** — [One-sentence definition]
 
-**关键连接**：
-- [概念A] → [概念B]：[关系描述]
-- [概念B] → [概念C]：[关系描述]
+**Key connections**:
+- [Concept A] → [Concept B]: [Relationship description]
+- [Concept B] → [Concept C]: [Relationship description]
 
-拿出纸/平板，用这些节点和连接画一张概念图。随着理解加深，重新组织节点位置。
+Get out paper/tablet and draw a concept map using these nodes and connections. Reorganize node positions as your understanding deepens.
 
-### 思考问题
+### Reflection Questions
 
-- [ ] [概念A]和[概念B]之间还有什么隐含的关系？
-- [ ] 如果去掉[概念C]，整个框架还成立吗？
-- [ ] 这个框架最薄弱的环节是什么？
+- [ ] What implicit relationship exists between [Concept A] and [Concept B]?
+- [ ] If you removed [Concept C], would the entire framework still hold?
+- [ ] What is the weakest link in this framework?
 ```
 
-#### E — Evidence → Store & Rehearse（存储 + 应用性复习）
+#### E — Evidence → Store & Rehearse (store + applied review)
 
 ```
-### 消化行动
+### Digest Actions
 
-这篇内容主要提供**证据性信息**——用来支撑更大的概念框架。
+This content primarily provides **evidential information** — used to support a larger conceptual framework.
 
-**值得存储的关键证据**：
-1. **[事实/数据点1]** — 支撑了[某概念]
-2. **[事实/数据点2]** — 支撑了[某概念]
-3. **[事实/数据点3]** — 支撑了[某概念]
+**Key evidence worth storing**:
+1. **[Fact/data point 1]** — supports [some concept]
+2. **[Fact/data point 2]** — supports [some concept]
+3. **[Fact/data point 3]** — supports [some concept]
 
-**存储建议**：将以上信息加入 Obsidian 笔记或 Anki 闪卡。
-**复习方式**：尝试用这些证据去解释或论证某个观点，而不是单纯背诵。
+**Storage recommendation**: Add the above information to Obsidian notes or Anki flashcards.
+**Review method**: Try using this evidence to explain or argue a viewpoint, rather than pure memorization.
 
-### 思考问题
+### Reflection Questions
 
-- [ ] 这些证据支撑的核心论点是什么？
-- [ ] 如果要用其中一个数据点写一段论证，你会怎么写？
+- [ ] What is the core argument that this evidence supports?
+- [ ] If you were to use one of these data points to write an argument, how would you write it?
 ```
 
-#### R — Reference → Store & Rehearse（存储 + 间隔重复）
+#### R — Reference → Store & Rehearse (store + spaced repetition)
 
 ```
-### 消化行动
+### Digest Actions
 
-这篇内容主要是**参考性信息**——细节性的事实，需要时能查到即可。
+This content is primarily **reference information** — detailed facts that you only need to be able to look up when needed.
 
-**值得存储的参考信息**：
-1. **[参考项1]** — [简要说明用途]
-2. **[参考项2]** — [简要说明用途]
-3. **[参考项3]** — [简要说明用途]
+**Reference information worth storing**:
+1. **[Reference item 1]** — [Brief description of its use]
+2. **[Reference item 2]** — [Brief description of its use]
+3. **[Reference item 3]** — [Brief description of its use]
 
-**存储建议**：存入 Obsidian 或 Anki。如果需要从记忆中调取，使用 Anki 间隔重复；如果只需查阅，存入笔记即可。
-**不要在阅读时死记这些信息**——把时间留给更重要的概念性和程序性知识。
+**Storage recommendation**: Store in Obsidian or Anki. If you need to retrieve it from memory, use Anki spaced repetition; if you only need to look it up, store it in notes.
+**Do not try to memorize this information while reading** — save that time for more important conceptual and procedural knowledge.
 ```
