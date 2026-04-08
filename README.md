@@ -1,10 +1,10 @@
-# claude-code-summarizer
+# agent-skill-summarizer
 
-![Claude Code](https://img.shields.io/badge/Claude_Code-Skill-blue?style=flat&logo=anthropic)
+![Claude Code](https://img.shields.io/badge/Agent_Skill-Skill-blue?style=flat&logo=anthropic)
 ![Summarization](https://img.shields.io/badge/Summarization-orange?style=flat&logo=obsidian)
 ![AI](https://img.shields.io/badge/AI-Powered-purple?style=flat)
 
-A Claude Code skill that analyzes articles, podcasts, and video transcripts into structured bilingual Obsidian notes with actionable knowledge taxonomy.
+An agent skill that analyzes articles, podcasts, and video transcripts into structured bilingual Obsidian notes with actionable knowledge taxonomy.
 
 ## Problem
 
